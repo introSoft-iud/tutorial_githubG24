@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial de Git y GitHub</title>
+</head>
+<body>
+
+    <h1>Tutorial de Git y GitHub</h1>
+
+    <h2>Introducción a Git</h2>
+    <p>Git es un sistema de control de versiones distribuido que permite gestionar el código fuente y colaborar en proyectos de manera eficiente. A través de comandos, Git rastrea los cambios, almacena versiones anteriores y facilita la colaboración.</p>
+
+    <h2>Configuración Inicial de Git</h2>
+    <p>Antes de empezar a usar Git, es necesario configurarlo con tu nombre y correo electrónico para que estos datos aparezcan en cada uno de tus commits.</p>
+
+    <pre><code>
+    git config --global user.name "Tu Nombre"
+    git config --global user.email "tu-email@ejemplo.com"
+    </code></pre>
+
+    <h2>Inicializar un Repositorio Git</h2>
+    <p>Para comenzar a usar Git en un proyecto, debes inicializar un repositorio en el directorio del proyecto:</p>
+
+    <pre><code>
+    git init
+    </code></pre>
+
+    <h2>Agregar Archivos al Staging (git add)</h2>
+    <p>Cuando realizas cambios en tu proyecto, Git los rastrea, pero necesitas agregarlos al "staging" antes de confirmarlos:</p>
+
+    <pre><code>
+    git add nombre-del-archivo
+    </code></pre>
+    <p>O para agregar todos los archivos modificados:</p>
+
+    <pre><code>
+    git add .
+    </code></pre>
+
+    <h2>Guardar Cambios (commit)</h2>
+    <p>Después de agregar los archivos al "staging", debes confirmar los cambios, creando un commit:</p>
+
+    <pre><code>
+    git commit -m "Mensaje descriptivo del cambio"
+    </code></pre>
+
+    <h2>Crear y Cambiar entre Ramas</h2>
+    <p>Una de las características más útiles de Git es la capacidad de trabajar en diferentes ramas. Para crear una nueva rama y cambiar a ella:</p>
+
+    <pre><code>
+    git checkout -b nombre-de-la-rama
+    </code></pre>
+    <p>Para cambiar entre ramas existentes:</p>
+
+    <pre><code>
+    git checkout nombre-de-la-rama
+    </code></pre>
+
+    <h2>Fusionar Ramas (merge)</h2>
+    <p>Para fusionar los cambios de una rama a la rama actual, usa el siguiente comando:</p>
+
+    <pre><code>
+    git merge nombre-de-la-rama
+    </code></pre>
+
+    <h2>Ver el Estado del Repositorio (git status)</h2>
+    <p>El comando <code>git status</code> te permite ver el estado actual del repositorio, mostrando qué archivos han sido modificados y cuáles están en el área de staging.</p>
+
+    <pre><code>
+    git status
+    </code></pre>
+
+    <h2>Introducción a GitHub</h2>
+    <p>GitHub es una plataforma basada en la web que permite a los desarrolladores alojar y gestionar repositorios de Git. Ofrece control de versiones en la nube, colaboración, y una comunidad activa para trabajar en proyectos de código abierto.</p>
+
+    <h2>Sincronizar tu Repositorio Local con GitHub</h2>
+    <p>Una vez que tienes un repositorio local, puedes sincronizarlo con un repositorio remoto en GitHub.</p>
+
+    <ol>
+        <li>Crea un nuevo repositorio en GitHub.</li>
+        <li>Conecta tu repositorio local al remoto con el siguiente comando:
+        <pre><code>
+        git remote add origin https://github.com/tu-usuario/nombre-del-repositorio.git
+        </code></pre></li>
+        <li>Sube los cambios al repositorio remoto:
+        <pre><code>
+        git push -u origin main
+        </code></pre></li>
+    </ol>
+
+    <h2>Generar y Configurar una Llave SSH para GitHub</h2>
+    <p>Para evitar tener que ingresar tus credenciales cada vez que empujes cambios, puedes configurar una llave SSH para autenticarte de manera segura con GitHub.</p>
+
+    <ol>
+        <li>Genera una nueva llave SSH:
+        <pre><code>
+        ssh-keygen -t ed25519 -C "tuemail@ejemplo.com"
+        </code></pre></li>
+        <li>Añade la llave SSH generada al agente SSH:
+        <pre><code>
+        eval "$(ssh-agent -s)"
+        ssh-add ~/.ssh/id_ed25519
+        </code></pre></li>
+        <li>Copia la llave pública:
+        <pre><code>
+        cat ~/.ssh/id_ed25519.pub
+        </code></pre></li>
+        <li>Añádela a GitHub en la sección de <strong>Settings > SSH and GPG keys</strong>.</li>
+        <li>Prueba la conexión:
+        <pre><code>
+        ssh -T git@github.com
+        </code></pre></li>
+    </ol>
+
+    <h2>¿Qué sucede si usas un correo diferente al de GitHub?</h2>
+    <p>Si usas un correo que no está asociado a tu cuenta de GitHub, los commits no estarán vinculados a tu perfil. Para evitar esto, asegúrate de configurar el correo correcto o añade el correo alternativo a tu cuenta de GitHub.</p>
+
+</body>
+</html>
